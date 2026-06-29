@@ -1,0 +1,40 @@
+.google-signin {
+  margin-top: 18px;
+}
+
+.google-signin__divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 14px;
+  color: var(--slate);
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.google-signin__divider::before,
+.google-signin__divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--slate-soft);
+}
+
+.google-signin__divider span {
+  padding: 0 12px;
+  white-space: nowrap;
+}
+
+.google-signin__button-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+/* The Google button renders in an iframe and manages its own light/dark
+   appearance via the `theme` prop passed in JS — we don't fight it with CSS,
+   we just make sure the surrounding card frame matches our theme. */
+.google-signin__button-wrap > div {
+  width: 100% !important;
+}

@@ -1,0 +1,44 @@
+.stamp {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--stamp-color);
+  border-radius: 999px;
+  color: var(--stamp-color);
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transform: rotate(-3deg);
+  background: color-mix(in srgb, var(--stamp-color) 7%, transparent);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.stamp__ring {
+  position: absolute;
+  inset: 3px;
+  border: 1px dashed color-mix(in srgb, var(--stamp-color) 55%, transparent);
+  border-radius: 999px;
+}
+
+.stamp--sm {
+  padding: 3px 10px;
+  font-size: 0.62rem;
+}
+
+.stamp--md {
+  padding: 5px 14px;
+  font-size: 0.72rem;
+}
+
+.stamp--lg {
+  padding: 8px 20px;
+  font-size: 0.88rem;
+  border-width: 3px;
+}
+
+.stamp--lg .stamp__ring {
+  inset: 5px;
+}

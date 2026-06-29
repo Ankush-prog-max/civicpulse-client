@@ -1,0 +1,112 @@
+.auth {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.auth__card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--paper-raised);
+  border: 1px solid var(--slate-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-raised);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth__seal {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--signal);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.auth__title {
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+
+.auth__sub {
+  font-size: 0.86rem;
+  color: var(--slate);
+  margin-bottom: 22px;
+  line-height: 1.45;
+}
+
+.auth__error {
+  background: var(--critical-soft);
+  color: var(--critical);
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+}
+
+.auth__label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.auth__input {
+  border: 1.5px solid var(--slate-soft);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  font-size: 0.92rem;
+  margin-bottom: 16px;
+  background: var(--paper);
+  color: var(--ink);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.auth__input::placeholder {
+  color: var(--slate);
+  opacity: 0.7;
+}
+
+.auth__input:focus {
+  border-color: var(--signal-dark);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--signal-soft);
+}
+
+.auth__submit {
+  margin-top: 6px;
+  padding: 12px;
+  font-size: 0.94rem;
+}
+
+.auth__switch {
+  text-align: center;
+  font-size: 0.86rem;
+  color: var(--slate);
+  margin-top: 18px;
+}
+
+.auth__switch a {
+  color: var(--signal-text);
+  font-weight: 700;
+}
+
+.auth__demo {
+  text-align: center;
+  font-size: 0.74rem;
+  color: var(--slate);
+  margin-top: 12px;
+  font-family: var(--font-mono);
+}

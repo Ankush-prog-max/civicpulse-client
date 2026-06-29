@@ -1,0 +1,137 @@
+.issue-card {
+  background: var(--paper-raised);
+  border: 1px solid var(--slate-soft);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.15s, box-shadow 0.15s;
+  display: flex;
+  flex-direction: column;
+}
+
+.issue-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-raised);
+}
+
+.issue-card__image-wrap {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  background: var(--slate-soft);
+  overflow: hidden;
+}
+
+.issue-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.issue-card:hover .issue-card__image {
+  transform: scale(1.04);
+}
+
+.issue-card__category {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(26, 42, 58, 0.85);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border-left: 3px solid var(--cat-color);
+}
+
+.issue-card__body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.issue-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.issue-card__severity {
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+.issue-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 2px 0;
+}
+
+.issue-card__ai-note {
+  font-size: 0.8rem;
+  color: var(--slate);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.issue-card__meta {
+  font-size: 0.76rem;
+  color: var(--slate);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.issue-card__dot { opacity: 0.5; }
+
+.issue-card__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--slate-soft);
+}
+
+.issue-card__action {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--slate);
+  background: var(--paper);
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--slate-soft);
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+}
+
+.issue-card__action:hover:not(:disabled) {
+  border-color: var(--signal);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.issue-card__action:active:not(:disabled) {
+  transform: translateY(0) scale(0.96);
+}
+
+.issue-card__action--active {
+  background: var(--good-soft);
+  color: var(--good);
+  border-color: var(--good);
+}
+
+.issue-card__action:disabled {
+  cursor: default;
+}
+
+.issue-card__action--link {
+  margin-left: auto;
+}

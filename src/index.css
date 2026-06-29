@@ -1,0 +1,153 @@
+/* ===================================================================
+   CivicPulse Design Tokens
+   Concept: "Civic Ledger" — municipal signage meets accountability log.
+   Not a SaaS dashboard. Issues are stamped report cards; status changes
+   are sealed like an official record.
+
+   Theme system: [data-theme="light"] / [data-theme="dark"] on <html>,
+   set by ThemeContext. Defaults to light if unset.
+=================================================================== */
+
+:root,
+[data-theme='light'] {
+  /* Color */
+  --ink: #1A2A3A;          /* municipal navy — headers, primary text, authority */
+  --ink-soft: #344455;      /* lighter navy for secondary headers */
+  --paper: #F7F5F0;         /* warm off-white — page background, "report paper" */
+  --paper-raised: #FFFFFF;  /* card surfaces */
+  --signal: #F2A93B;        /* amber — primary action, hazard/signal color */
+  --signal-dark: #D6901F;
+  --signal-text: #945A07;   /* darker amber for TEXT on paper — passes WCAG AA (5.17:1); signal-dark alone is only 2.45:1 and unsafe for body text */
+  --signal-soft: rgba(242, 169, 59, 0.14);
+  --good: #3D8361;          /* resolved/success green */
+  --good-soft: #E7F2EC;
+  --critical: #C44536;      /* high/critical severity red */
+  --critical-soft: #FAEAE7;
+  --slate: #6B7785;         /* secondary text, captions */
+  --slate-soft: #E4E1D9;    /* hairline borders on paper */
+  --line: #D8D4C8;          /* dividers */
+  --overlay: rgba(26, 42, 58, 0.45);
+
+  /* Severity scale (distinct from status) */
+  --sev-low: #8AA399;
+  --sev-medium: #E0A458;
+  --sev-high: #D6753E;
+  --sev-critical: #C44536;
+
+  --scheme: light;
+}
+
+[data-theme='dark'] {
+  /* Inverted civic ledger: a municipal records office after hours —
+     deep charcoal-navy, paper becomes dark slate, amber glows warmer. */
+  --ink: #F3F1EA;            /* primary text reads light now */
+  --ink-soft: #C9CCD3;
+  --paper: #11161D;          /* page background — near-black navy */
+  --paper-raised: #1A222C;   /* card surfaces, lifted one step */
+  --signal: #F2B556;         /* slightly brighter amber for dark contrast */
+  --signal-dark: #FFC972;
+  --signal-text: #FFC972;    /* already passes contrast in dark mode (11.98:1), so same as signal-dark here */
+  --signal-soft: rgba(242, 181, 86, 0.16);
+  --good: #5FAF85;
+  --good-soft: rgba(95, 175, 133, 0.14);
+  --critical: #E2685A;
+  --critical-soft: rgba(226, 104, 90, 0.14);
+  --slate: #8A92A0;
+  --slate-soft: #2A323D;     /* hairline borders on dark surfaces */
+  --line: #2A323D;
+  --overlay: rgba(0, 0, 0, 0.6);
+
+  --sev-low: #7FA395;
+  --sev-medium: #E0A458;
+  --sev-high: #E0824F;
+  --sev-critical: #E2685A;
+
+  --scheme: dark;
+}
+
+:root {
+  /* Type */
+  --font-display: 'Archivo Expanded', 'Arial Narrow', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Layout */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-raised: 0 4px 16px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.1);
+  --max-width: 1180px;
+  color-scheme: var(--scheme);
+
+  /* Brand surface — fixed dark navy regardless of theme (the navbar is a brand
+     element, not a content surface, so it doesn't invert with light/dark mode). */
+  --brand-surface: #1A2A3A;
+  --brand-text: #FFFFFF;
+  --brand-text-dim: rgba(255, 255, 255, 0.65);
+  --brand-text-faint: rgba(255, 255, 255, 0.5);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, textarea, select {
+  font-family: var(--font-body);
+}
+
+/* Visible keyboard focus — accessibility floor */
+:focus-visible {
+  outline: 2px solid var(--signal-dark);
+  outline-offset: 2px;
+}
+
+img { max-width: 100%; display: block; }
+
+/* Reduced motion respected */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Scrollbar (subtle, on-brand) */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--paper); }
+::-webkit-scrollbar-thumb { background: var(--slate-soft); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: var(--slate); }
