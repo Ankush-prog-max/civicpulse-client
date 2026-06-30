@@ -244,6 +244,19 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.categories__chip:hover {
+  border-color: var(--accent, #f5a623);
+  background: var(--paper);
+}
+
+.categories__chip:active {
+  transform: scale(0.96);
 }
 
 .home-footer {

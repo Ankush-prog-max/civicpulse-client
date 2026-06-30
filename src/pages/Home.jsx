@@ -117,9 +117,9 @@ export default function Home() {
             ['💧', 'Water Leaks'], ['🌊', 'Sewage & Drains'], ['🛣️', 'Road Damage'],
             ['🚛', 'Illegal Dumping'], ['🌳', 'Fallen Trees'],
           ].map(([icon, label]) => (
-            <div key={label} className="categories__chip">
+            <Link key={label} to="/report" className="categories__chip">
               <span>{icon}</span> {label}
-            </div>
+            </Link>
           ))}
         </div>
       </section>
