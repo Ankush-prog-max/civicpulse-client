@@ -5,13 +5,13 @@
 .google-signin__divider {
   display: flex;
   align-items: center;
-  text-align: center;
+  gap: 12px;
   margin-bottom: 14px;
   color: var(--slate);
   font-size: 0.76rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
 }
 
 .google-signin__divider::before,
@@ -22,30 +22,53 @@
   background: var(--slate-soft);
 }
 
-.google-signin__divider span {
-  padding: 0 12px;
-  white-space: nowrap;
-}
-
-.google-signin__button-wrap {
+.google-signin__btn {
+  width: 100%;
   display: flex;
+  align-items: center;
   justify-content: center;
-  padding: 4px;
-  border-radius: 999px;
-  background: var(--paper-raised);
-  border: 1px solid var(--slate-soft);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  gap: 12px;
+  padding: 13px 20px;
+  border-radius: 12px;
+  border: 1.5px solid var(--slate-soft);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease,
+              transform 0.1s ease, box-shadow 0.15s ease;
+  font-family: inherit;
 }
 
-.google-signin__button-wrap:hover {
-  border-color: var(--accent, #f5a623);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+.google-signin__btn--dark {
+  background: #1e2d42;
+  color: #e8ecf4;
+  border-color: #2e3f58;
 }
 
-/* The Google button renders in an iframe and manages its own light/dark
-   appearance via the `theme` prop passed in JS — we don't fight it with CSS,
-   we just make sure the surrounding card frame matches our theme. */
-.google-signin__button-wrap > div {
-  width: 100% !important;
+.google-signin__btn--dark:hover {
+  background: #253450;
+  border-color: #f5a623;
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.12);
+}
+
+.google-signin__btn--light {
+  background: #ffffff;
+  color: #1a2233;
+  border-color: #dde1e8;
+}
+
+.google-signin__btn--light:hover {
+  background: #f7f8fa;
+  border-color: #f5a623;
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.12);
+}
+
+.google-signin__btn:active {
+  transform: scale(0.98);
+}
+
+.google-signin__icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
